@@ -99,7 +99,7 @@
                 </v-row>
                 <v-row>
                     <h4>Classic Draw Winning Numbers</h4>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="First"
                             type="number"
@@ -114,7 +114,7 @@
                         </v-text-field>
                         <small class="text-danger" v-text="err_form.winning_number_1"></small>
                     </v-col>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="Second"
                             type="number"
@@ -129,7 +129,7 @@
                         </v-text-field>
                         <small class="text-danger" v-text="err_form.winning_number_2"></small>
                     </v-col>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="Third"
                             type="number"
@@ -144,7 +144,7 @@
                         </v-text-field>
                         <small class="text-danger" v-text="err_form.winning_number_3"></small>
                     </v-col>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="Fourth"
                             type="number"
@@ -159,7 +159,7 @@
                         </v-text-field>
                         <small class="text-danger" v-text="err_form.winning_number_4"></small>
                     </v-col>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="Fifth"
                             type="number"
@@ -174,7 +174,7 @@
                         </v-text-field>
                         <small class="text-danger" v-text="err_form.winning_number_5"></small>
                     </v-col>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="Sixth"
                             type="number"
@@ -189,7 +189,7 @@
                         </v-text-field>
                         <small class="text-danger" v-text="err_form.winning_number_6"></small>
                     </v-col>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="Bonus"
                             type="number"
@@ -332,7 +332,7 @@
                 </v-row>
                 <v-row>
                     <h4>Classic Draw Winning Numbers</h4>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="First"
                             type="number"
@@ -347,7 +347,7 @@
                         </v-text-field>
                         <small class="text-danger" v-text="err_form.winning_number_1"></small>
                     </v-col>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="Second"
                             type="number"
@@ -362,7 +362,7 @@
                         </v-text-field>
                         <small class="text-danger" v-text="err_form.winning_number_2"></small>
                     </v-col>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="Third"
                             type="number"
@@ -377,7 +377,7 @@
                         </v-text-field>
                         <small class="text-danger" v-text="err_form.winning_number_3"></small>
                     </v-col>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="Fourth"
                             type="number"
@@ -392,7 +392,7 @@
                         </v-text-field>
                         <small class="text-danger" v-text="err_form.winning_number_4"></small>
                     </v-col>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="Fifth"
                             type="number"
@@ -407,7 +407,7 @@
                         </v-text-field>
                         <small class="text-danger" v-text="err_form.winning_number_5"></small>
                     </v-col>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="Sixth"
                             type="number"
@@ -422,7 +422,7 @@
                         </v-text-field>
                         <small class="text-danger" v-text="err_form.winning_number_6"></small>
                     </v-col>
-                    <v-col cols="12" sm="4" xs="4" md="">
+                    <v-col cols="6" sm="4" xs="4" md="">
                         <v-text-field
                             label="Bonus"
                             type="number"
