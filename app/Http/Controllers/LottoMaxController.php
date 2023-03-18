@@ -39,7 +39,7 @@ class LottoMaxController extends Controller
     public function store(Request $request)
     {
         $validator = Validator::make($request->all(), [
-            "draw_date" => 'required|date_format:Y-m-d|unique:six_fournines', //done
+            "draw_date" => 'required|date_format:Y-m-d|unique:maxes', //done
             "winning_number_1" => 'required|numeric|min:1|max:50|lt:winning_number_2,winning_number_3,winning_number_4,winning_number_5,winning_number_6,winning_number_7', //done
             "winning_number_2" => 'required|numeric|min:1|max:50|gt:winning_number_1|lt:winning_number_3,winning_number_4,winning_number_5,winning_number_6,winning_number_7', //done
             "winning_number_3" => 'required|numeric|min:1|max:50|gt:winning_number_1,winning_number_2|lt:winning_number_4,winning_number_5,winning_number_6,winning_number_7', //done
@@ -48,6 +48,7 @@ class LottoMaxController extends Controller
             "winning_number_6" => 'required|numeric|min:1|max:50|gt:winning_number_1,winning_number_2,winning_number_3,winning_number_4,winning_number_5|lt:winning_number_7', //done
             "winning_number_7" => 'required|numeric|min:1|max:50|gt:winning_number_1,winning_number_2,winning_number_3,winning_number_4,winning_number_5,winning_number_6', //done
             "winning_number_bonus" => 'required|numeric|min:1|max:50|different:winning_number_1,winning_number_2,winning_number_3,winning_number_4,winning_number_5,winning_number_6,winning_number_7', //done
+            "extra" => 'required|numeric|digits:7',
         ]);
         $max = $validator->validated();
         if ($validator->fails()) {
@@ -67,6 +68,7 @@ class LottoMaxController extends Controller
                 'winning_number_6' => $max['winning_number_6'],
                 'winning_number_7' => $max['winning_number_7'],
                 'winning_number_bonus' => $max['winning_number_bonus'],
+                'extra' => $max['extra'],
             ]);
             return response()->json(['success'=>'Record successfully added.']);
         }
@@ -114,6 +116,7 @@ class LottoMaxController extends Controller
             "winning_number_6" => 'required|numeric|min:1|max:50|gt:winning_number_1,winning_number_2,winning_number_3,winning_number_4,winning_number_5|lt:winning_number_7', //done
             "winning_number_7" => 'required|numeric|min:1|max:50|gt:winning_number_1,winning_number_2,winning_number_3,winning_number_4,winning_number_5,winning_number_6', //done
             "winning_number_bonus" => 'required|numeric|min:1|max:50|different:winning_number_1,winning_number_2,winning_number_3,winning_number_4,winning_number_5,winning_number_6,winning_number_7', //done
+            "extra" => 'required|numeric|digits:7',
         ]);
 
         $max = $validator->validated();
@@ -131,11 +134,10 @@ class LottoMaxController extends Controller
             $update_id->winning_number_6 = $max['winning_number_6'];
             $update_id->winning_number_7 = $max['winning_number_7'];
             $update_id->winning_number_bonus = $max['winning_number_bonus'];
+            $update_id->extra = $max['extra'];
 
             $update_id->save();
-            return response()->json([
-                'success' => 'Record successfully added.'
-            ]);
+            return response()->json(['success'=>'Record successfully updated.']);
         }
     }
 

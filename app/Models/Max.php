@@ -24,6 +24,7 @@ class Max extends Model
         'winning_number_6',
         'winning_number_7',
         'winning_number_bonus',
+        'extra',
         'soft_Delete'
     ];
 }

@@ -28,6 +28,7 @@ class CreateMaxesTable extends Migration
             $table->integer('winning_number_6');
             $table->integer('winning_number_7');
             $table->integer('winning_number_bonus');
+            $table->integer('extra');
             $table->boolean('soft_Delete')->default(1);
             $table->timestamps();
         });

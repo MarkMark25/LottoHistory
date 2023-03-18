@@ -220,7 +220,20 @@
                         </v-text-field>
                         <small class="text-danger" v-text="err_form.winning_number_bonus"></small>
                     </v-col>
-
+                </v-row>
+                <v-row>
+                    <v-col cols="12" md="6">
+                         <v-text-field
+                            v-model="editedItem.extra"
+                            label="Extra Number"
+                            @keydown="err_form.extra = ''"
+                            @click="err_form.extra = ''"
+                            dense
+                            placeholder="0000000"
+                            :maxlength="extra_num_max"
+                        ></v-text-field>
+                        <small class="text-danger" v-text="err_form.extra"></small>
+                    </v-col>
                 </v-row>
               </v-container>
             </v-card-text>
@@ -428,6 +441,20 @@
                         <small class="text-danger" v-text="err_form.winning_number_bonus"></small>
                     </v-col>
                 </v-row>
+                <v-row>
+                    <v-col cols="12" md="6">
+                         <v-text-field
+                            v-model="editedItem.extra"
+                            label="Extra Number"
+                            @keydown="err_form.extra = ''"
+                            @click="err_form.extra = ''"
+                            dense
+                            placeholder="0000000"
+                            :maxlength="extra_num_max"
+                        ></v-text-field>
+                        <small class="text-danger" v-text="err_form.extra"></small>
+                    </v-col>
+                </v-row>
               </v-container>
             </v-card-text>
 
@@ -586,6 +613,7 @@
             value: 'draw_date',
             },
             { text: 'Winning Number', value: 'winning_number'},
+            { text: 'Extra', value: 'extra'},
             { text: 'Actions', value: 'actions', sortable: false },
 
         ],
@@ -603,6 +631,7 @@
             winning_number_6: '',
             winning_number_7: '',
             winning_number_bonus: '',
+            extra: '',
         },
         defaultItem: {
             id_string: '',
@@ -615,6 +644,7 @@
             winning_number_6: '',
             winning_number_7: '',
             winning_number_bonus: '',
+            extra: '',
         },
         err: [],
         err_form: {
@@ -627,6 +657,7 @@
             winning_number_6: '',
             winning_number_7: '',
             winning_number_bonus: '',
+            extra: '',
         },
 
         date: (new Date(Date.now() - (new Date()).getTimezoneOffset() * 60000)).toISOString().substr(0, 10),
@@ -636,6 +667,7 @@
             if(val < 0) return 'Please enter a positive number'
             return true
         },
+        extra_num_max: 7,
     }),
 
     computed: {
@@ -723,7 +755,7 @@
                 this.editedIndex = -1
             });
         },
-        //under construction
+
         validate(){
             this.err = [];
             /** Start - Field is required */
@@ -958,9 +990,19 @@
                     this.err_form.winning_number_bonus= 'Number cannot be repeated';
             } // Bonus
 
+            /**Extra Number */
+            if(!this.editedItem.extra){
+                this.err.push('0');
+                this.err_form.extra= 'Field is required.';
+            }/** Start -Extra Number draw length validation */
+            else if((this.editedItem.extra).toString().length > 7){
+                this.err.push('0');
+                this.err_form.extra = 'The number of characters exceeded its specified limit (7).';
+            }/** End - Extra Number draw length validation */
+
 
         },
-        // Under constructions
+
         save () {
             if (this.editedIndex > -1) {
                 // this.validate();
@@ -992,6 +1034,7 @@
                         this.err_form.winning_number_6 = error.response.data.errors.winning_number_6
                         this.err_form.winning_number_7 = error.response.data.errors.winning_number_7
                         this.err_form.winning_number_bonus = error.response.data.errors.winning_number_bonus
+                        this.err_form.extra = error.response.data.errors.extra
                     });;
                 }
             } else {
@@ -1024,6 +1067,7 @@
                         this.err_form.winning_number_6 = error.response.data.errors.winning_number_6
                         this.err_form.winning_number_7 = error.response.data.errors.winning_number_7
                         this.err_form.winning_number_bonus = error.response.data.errors.winning_number_bonus
+                        this.err_form.extra = error.response.data.errors.extra
 
                     });
                 }
@@ -1041,6 +1085,7 @@
             this.err_form.winning_number_6 = '';
             this.err_form.winning_number_7 = '';
             this.err_form.winning_number_bonus = '';
+            this.err_form.extra = '';
         },
 
     },
