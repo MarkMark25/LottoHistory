@@ -1073,7 +1073,7 @@
                     this.err_form.winning_number_bonus= 'Number cannot be repeated';
             } // Bonus
 
-            if(!this.editedItem.ball_color){
+            if(this.editedItem.ball_color === " "){
                 this.err.push('0');
                 this.err_form.ball_color= 'Field is required.';
             }
