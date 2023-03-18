@@ -52,6 +52,7 @@ class SixFourNineController extends Controller
             "ball_color" => 'required|numeric|min:0|max:1', //done
             "gold_ball_win_num" => 'required|max:11', //done
             "gb_province_winner" => 'required|max:2|in:NL,PE,NS,NB,QC,ON,MB,SK,AB,BC,YT,NT,NU', //done
+            "extra" => 'required|numeric|digits:7', //done
         ]);
         $fn = $validator->validated();
         if ($validator->fails()) {
@@ -73,6 +74,7 @@ class SixFourNineController extends Controller
                 'ball_color' => $fn['ball_color'],
                 'gold_ball_win_num' => $fn['gold_ball_win_num'],
                 'gb_province_winner' => $fn['gb_province_winner'],
+                'extra' => $fn['extra'],
             ]);
             return response()->json(['success'=>'Record successfully added.']);
         }
@@ -122,6 +124,7 @@ class SixFourNineController extends Controller
             "ball_color" => 'required|numeric|min:0|max:1',
             "gold_ball_win_num" => 'required|max:11',
             "gb_province_winner" => 'required|max:2|in:NL,PE,NS,NB,QC,ON,MB,SK,AB,BC,YT,NT,NU',
+            "extra" => 'required|numeric|digits:7',
         ]);
 
         $fn = $validator->validated();
@@ -141,6 +144,7 @@ class SixFourNineController extends Controller
             $update_id->ball_color = $fn['ball_color'];
             $update_id->gold_ball_win_num = $fn['gold_ball_win_num'];
             $update_id->gb_province_winner = $fn['gb_province_winner'];
+            $update_id->extra = $fn['extra'];
 
             $update_id->save();
             return response()->json([

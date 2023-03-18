@@ -249,6 +249,20 @@
                         <small class="text-danger" v-text="err_form.gb_province_winner"></small>
                     </v-col>
                 </v-row>
+                <v-row>
+                    <v-col cols="12" md="6">
+                         <v-text-field
+                            v-model="editedItem.extra"
+                            label="Extra Number"
+                            @keydown="err_form.extra = ''"
+                            @click="err_form.extra = ''"
+                            dense
+                            placeholder="0000000"
+                            :maxlength="extra_num_max"
+                        ></v-text-field>
+                        <small class="text-danger" v-text="err_form.extra"></small>
+                    </v-col>
+                </v-row>
               </v-container>
             </v-card-text>
 
@@ -482,6 +496,20 @@
                         <small class="text-danger" v-text="err_form.gb_province_winner"></small>
                     </v-col>
                 </v-row>
+                <v-row>
+                    <v-col cols="12" md="6">
+                         <v-text-field
+                            v-model="editedItem.extra"
+                            label="Extra Number"
+                            @keydown="err_form.extra = ''"
+                            @click="err_form.extra = ''"
+                            dense
+                            placeholder="0000000"
+                            :maxlength="extra_num_max"
+                        ></v-text-field>
+                        <small class="text-danger" v-text="err_form.extra"></small>
+                    </v-col>
+                </v-row>
               </v-container>
             </v-card-text>
 
@@ -655,6 +683,7 @@
             { text: 'Classic Draw', value: 'classic_draw'},
             { text: 'Gold Ball Draw', value: 'gold_ball_win_num_province'},
             { text: 'Ball Color', value: 'ball_color'},
+            { text: 'Extra', value: 'extra'},
             { text: 'Actions', value: 'actions', sortable: false },
 
         ],
@@ -674,6 +703,7 @@
             ball_color: '',
             gold_ball_win_num: '',
             gb_province_winner: '',
+            extra: '',
         },
         defaultItem: {
             id_string: '',
@@ -688,6 +718,7 @@
             ball_color: '',
             gold_ball_win_num: '',
             gb_province_winner: '',
+            extra: '',
         },
         err: [],
         err_form: {
@@ -702,6 +733,7 @@
             ball_color: '',
             gold_ball_win_num: '',
             gb_province_winner: '',
+            extra: '',
         },
         gold_ball_draw_color: [
             {
@@ -737,6 +769,7 @@
         },
         //Gold Winning Number Maximum Length
         gold_win_num_max:11,
+        extra_num_max:7,
     }),
 
     computed: {
@@ -789,6 +822,7 @@
                     winning_number_5: l.winning_number_5,
                     winning_number_6: l.winning_number_6,
                     winning_number_bonus: l.winning_number_bonus,
+                    extra: l.extra,
                 });
             });
         },
@@ -1055,9 +1089,18 @@
                 this.err.push('0');
                 this.err_form.gb_province_winner= 'Field is required.';
             }
+            /**Extra Number */
+            if(!this.editedItem.extra){
+                this.err.push('0');
+                this.err_form.extra= 'Field is required.';
+            }/** Start -Extra Number draw length validation */
+            else if((this.editedItem.extra).toString().length > 7){
+                this.err.push('0');
+                this.err_form.extra = 'The number of characters exceeded its specified limit (7).';
+            }/** End - Extra Number draw length validation */
 
         },
-        // Under constructions
+
         save () {
             if (this.editedIndex > -1) {
                 this.validate();
@@ -1090,6 +1133,7 @@
                         this.err_form.ball_color = error.response.data.errors.ball_color
                         this.err_form.gold_ball_win_num = error.response.data.errors.gold_ball_win_num
                         this.err_form.gb_province_winner = error.response.data.errors.gb_province_winner
+                        this.err_form.extra = error.response.data.errors.extra
                     });;
                 }
             } else {
@@ -1124,6 +1168,7 @@
                         this.err_form.ball_color = error.response.data.errors.ball_color
                         this.err_form.gold_ball_win_num = error.response.data.errors.gold_ball_win_num
                         this.err_form.gb_province_winner = error.response.data.errors.gb_province_winner
+                        this.err_form.extra = error.response.data.errors.extra
 
                     });
                 }
@@ -1143,6 +1188,7 @@
             this.err_form.ball_color = '';
             this.err_form.gold_ball_win_num = '';
             this.err_form.gb_province_winner = '';
+            this.err_form.extra = '';
         },
 
     },

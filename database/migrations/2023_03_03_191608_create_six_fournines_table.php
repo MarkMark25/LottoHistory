@@ -30,6 +30,7 @@ class CreateSixFourninesTable extends Migration
             $table->boolean('ball_color');//1=Gold and 0=White
             $table->string('gold_ball_win_num');
             $table->enum('gb_province_winner',['NL','PE','NS','NB','QC','ON','MB','SK','AB','BC','YT','NT','NU']);
+            $table->integer('extra');
             $table->boolean('soft_Delete')->default(1);
             $table->timestamps();
         });

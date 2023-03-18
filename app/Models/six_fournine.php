@@ -26,6 +26,7 @@ class six_fournine extends Model
         'ball_color',
         'gold_ball_win_num',
         'gb_province_winner',
+        'extra',
         'soft_Delete'
     ];
 }
