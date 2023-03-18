@@ -148,7 +148,7 @@ class SixFourNineController extends Controller
 
             $update_id->save();
             return response()->json([
-                'success' => 'Record successfully added.'
+                'success' => 'Record successfully updated.'
             ]);
         }
     }
