@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LottoMaxController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SixFourNineController;
 use Illuminate\Support\Facades\Auth;
@@ -29,3 +30,8 @@ Route::get('/lotto/history/6-49', [SixFourNineController::class, 'index'])->name
 Route::post('/lotto/history/6-49/store', [SixFourNineController::class, 'store'])->name('sixfournine.store');
 Route::patch('/lotto/history/6-49/update/{id_string}', [SixFourNineController::class, 'update'])->name('sixfournine.update');
 Route::patch('/lotto/history/6-49/destroy/{id_string}', [SixFourNineController::class, 'destroy'])->name('sixfournine.destroy');
+
+Route::get('/lotto/history/lotto-max', [LottoMaxController::class, 'index'])->name('lotto-max');
+Route::post('/lotto/history/lotto-max/store', [LottoMaxController::class, 'store'])->name('lotto-max.store');
+Route::patch('/lotto/history/lotto-max/update/{id_string}', [LottoMaxController::class, 'update'])->name('lotto-max.update');
+Route::patch('/lotto/history/lotto-max/destroy/{id_string}', [LottoMaxController::class, 'destroy'])->name('lotto-max.destroy');
