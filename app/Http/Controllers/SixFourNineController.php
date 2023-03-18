@@ -50,7 +50,7 @@ class SixFourNineController extends Controller
             "winning_number_6" => 'required|numeric|min:1|max:49|gt:winning_number_1,winning_number_2,winning_number_3,winning_number_4,winning_number_5', //done
             "winning_number_bonus" => 'required|numeric|min:1|max:49|different:winning_number_1,winning_number_2,winning_number_3,winning_number_4,winning_number_5,winning_number_6', //done
             "ball_color" => 'required|numeric|min:0|max:1', //done
-            "gold_ball_win_num" => 'required|max:11', //done
+            "gold_ball_win_num" => 'required|min:11|max:11', //done
             "gb_province_winner" => 'required|max:2|in:NL,PE,NS,NB,QC,ON,MB,SK,AB,BC,YT,NT,NU', //done
             "extra" => 'required|numeric|digits:7', //done
         ]);
@@ -122,7 +122,7 @@ class SixFourNineController extends Controller
             "winning_number_6" => 'required|numeric|min:1|max:49|gt:winning_number_1,winning_number_2,winning_number_3,winning_number_4,winning_number_5',
             "winning_number_bonus" => 'required|numeric|min:1|max:49|different:winning_number_1,winning_number_2,winning_number_3,winning_number_4,winning_number_5,winning_number_6', //done
             "ball_color" => 'required|numeric|min:0|max:1',
-            "gold_ball_win_num" => 'required|max:11',
+            "gold_ball_win_num" => 'required|min:11|max:11',
             "gb_province_winner" => 'required|max:2|in:NL,PE,NS,NB,QC,ON,MB,SK,AB,BC,YT,NT,NU',
             "extra" => 'required|numeric|digits:7',
         ]);
